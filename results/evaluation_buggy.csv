@@ -1,0 +1,11 @@
+strategy,run_seed,tests_to_first_violation,tests_to_all_rules,violation_rounds,rules_found
+random,100,3,5,14,R1 R4 R5
+random,101,2,27,16,R1 R4 R5
+random,102,3,5,25,R1 R4 R5
+random,103,1,7,15,R1 R4 R5
+random,104,11,20,10,R1 R4 R5
+ranker,100,3,9,26,R1 R4 R5
+ranker,101,5,19,22,R1 R4 R5
+ranker,102,3,9,23,R1 R4 R5
+ranker,103,1,7,21,R1 R4 R5
+ranker,104,1,7,24,R1 R4 R5

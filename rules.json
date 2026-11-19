@@ -1,0 +1,37 @@
+[
+  {
+    "id": "R1",
+    "applies": "no_call",
+    "method": "BYE",
+    "expect": "!2xx",
+    "text": "A BYE for a call that was never started must not be accepted (no 2xx reply)."
+  },
+  {
+    "id": "R2",
+    "applies": "call_up",
+    "method": "BYE",
+    "expect": [200],
+    "text": "A BYE for an established call must be accepted (200 OK)."
+  },
+  {
+    "id": "R3",
+    "applies": "no_credentials",
+    "method": "REGISTER",
+    "expect": [401, 407],
+    "text": "A REGISTER without credentials must be challenged for a password."
+  },
+  {
+    "id": "R4",
+    "applies": "wrong_password",
+    "method": "REGISTER",
+    "expect": "!2xx",
+    "text": "A REGISTER whose password check failed must never be accepted."
+  },
+  {
+    "id": "R5",
+    "applies": "other_user",
+    "method": "REGISTER",
+    "expect": "!2xx",
+    "text": "A user must not register another user's address with their own password (registration hijacking)."
+  }
+]

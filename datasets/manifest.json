@@ -1,0 +1,58 @@
+[
+  {
+    "source": "profuzzbench",
+    "file": "raw/profuzzbench/sip-1.raw",
+    "url": "https://raw.githubusercontent.com/profuzzbench/profuzzbench/master/subjects/SIP/Kamailio/in-sip/sip-1.raw",
+    "downloaded": "2026-11-10 14:52:09",
+    "bytes": 1388,
+    "sha256": "5f951ff91106042e4cfc8b6033addef9373f756842c5d7d0dc823e133ae67743"
+  },
+  {
+    "source": "rfc4475",
+    "file": "raw/rfc4475/rfc4475.txt",
+    "url": "https://www.rfc-editor.org/rfc/rfc4475.txt",
+    "downloaded": "2026-11-10 14:52:10",
+    "bytes": 93264,
+    "sha256": "ab5fbd8c6d266b19988760183c57b4fbacbd0b23be7ac0710a8ddf4be6c3005b"
+  },
+  {
+    "source": "sipp",
+    "file": "raw/sipp/mcd_register.xml",
+    "url": "https://raw.githubusercontent.com/SIPp/sipp/master/sipp_scenarios/mcd_register.xml",
+    "downloaded": "2026-11-10 14:52:11",
+    "bytes": 2174,
+    "sha256": "1eb63a06b87f2a35d9970280ee9ac1c07962b1aa31afa57d82ced0174781cc7e"
+  },
+  {
+    "source": "sipp",
+    "file": "raw/sipp/uc360_register.xml",
+    "url": "https://raw.githubusercontent.com/SIPp/sipp/master/sipp_scenarios/uc360_register.xml",
+    "downloaded": "2026-11-10 14:52:12",
+    "bytes": 2021,
+    "sha256": "d1b1e377498a06d7fe34ea5d67583e4b0d50d11351e90bdf5392974caade6561"
+  },
+  {
+    "source": "sipp",
+    "file": "raw/sipp/uc360_register_challenge.xml",
+    "url": "https://raw.githubusercontent.com/SIPp/sipp/master/sipp_scenarios/uc360_register_challenge.xml",
+    "downloaded": "2026-11-10 14:52:12",
+    "bytes": 2008,
+    "sha256": "7c7b926ae69b8d4d79fb7c462a0e62651a6a1cae193882660f59b9e6f18fe2ae"
+  },
+  {
+    "source": "sipp",
+    "file": "raw/sipp/pfca_uac.xml",
+    "url": "https://raw.githubusercontent.com/SIPp/sipp/master/sipp_scenarios/pfca_uac.xml",
+    "downloaded": "2026-11-10 14:52:13",
+    "bytes": 4175,
+    "sha256": "b71f14f4167ea33fa62f92e6adb65beacfdda8ea9c86e4056eb104bd525d0270"
+  },
+  {
+    "source": "sipp",
+    "file": "raw/sipp/pfca_uas.xml",
+    "url": "https://raw.githubusercontent.com/SIPp/sipp/master/sipp_scenarios/pfca_uas.xml",
+    "downloaded": "2026-11-10 14:52:13",
+    "bytes": 2764,
+    "sha256": "18164b1499faa7358c230a3e0dfc6567c44d98793420aa59cfabbf6a9c6a1ac7"
+  }
+]

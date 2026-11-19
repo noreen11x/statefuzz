@@ -1,0 +1,145 @@
+{
+  "seeds": [
+    {
+      "id": "builtin_call",
+      "source": "builtin",
+      "steps": [
+        {
+          "method": "INVITE",
+          "auth": "valid",
+          "to": "bob"
+        },
+        {
+          "method": "ACK",
+          "to": "bob"
+        },
+        {
+          "method": "BYE",
+          "to": "bob"
+        }
+      ]
+    },
+    {
+      "id": "builtin_register",
+      "source": "builtin",
+      "steps": [
+        {
+          "method": "REGISTER",
+          "auth": "valid",
+          "to": "alice"
+        }
+      ]
+    },
+    {
+      "id": "pfb_sip-1",
+      "source": "profuzzbench",
+      "file": "sip-1.raw",
+      "original": [
+        "REGISTER",
+        "INVITE",
+        "ACK",
+        "BYE"
+      ],
+      "skipped": [],
+      "steps": [
+        {
+          "method": "REGISTER",
+          "to": "alice",
+          "auth": "valid"
+        },
+        {
+          "method": "INVITE",
+          "to": "bob",
+          "auth": "valid"
+        },
+        {
+          "method": "ACK",
+          "to": "bob"
+        },
+        {
+          "method": "BYE",
+          "to": "bob"
+        }
+      ]
+    },
+    {
+      "id": "sipp_mcd_register",
+      "source": "sipp",
+      "file": "mcd_register.xml",
+      "original": [
+        "REGISTER"
+      ],
+      "skipped": [],
+      "steps": [
+        {
+          "method": "REGISTER",
+          "to": "alice",
+          "auth": "valid"
+        }
+      ],
+      "also": [
+        "uc360_register.xml",
+        "uc360_register_challenge.xml"
+      ]
+    },
+    {
+      "id": "sipp_pfca_uac",
+      "source": "sipp",
+      "file": "pfca_uac.xml",
+      "original": [
+        "INVITE",
+        "PRACK",
+        "ACK",
+        "BYE"
+      ],
+      "skipped": [
+        "PRACK"
+      ],
+      "steps": [
+        {
+          "method": "INVITE",
+          "to": "bob",
+          "auth": "valid"
+        },
+        {
+          "method": "ACK",
+          "to": "bob"
+        },
+        {
+          "method": "BYE",
+          "to": "bob"
+        }
+      ],
+      "also": [
+        "pfca_uas.xml"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "compact_headers",
+      "rfc_section": "3.1.1.1",
+      "title": "A Short Tortuous INVITE"
+    },
+    {
+      "id": "unknown_header",
+      "rfc_section": "3.1.1.1",
+      "title": "A Short Tortuous INVITE"
+    },
+    {
+      "id": "no_lws_display_name",
+      "rfc_section": "3.1.1.6",
+      "title": "Message with No LWS between Display Name and <"
+    },
+    {
+      "id": "long_values",
+      "rfc_section": "3.1.1.7",
+      "title": "Long Values in Header Fields"
+    },
+    {
+      "id": "trailing_octets",
+      "rfc_section": "3.1.1.8",
+      "title": "Extra Trailing Octets in a UDP Datagram"
+    }
+  ]
+}

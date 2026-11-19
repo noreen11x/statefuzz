@@ -1,0 +1,51 @@
+# StateFuzz demo: the real target (Kamailio) and a test phone (bob).
+#
+#   docker compose up -d        start both
+#   docker compose logs -f      watch what Kamailio does with each message
+#   docker compose down         stop both
+#
+# Switch secure/misconfigured mode with:  python switch_mode.py normal|buggy
+
+name: statefuzz
+
+services:
+  kamailio:
+    image: ghcr.io/kamailio/kamailio:6.0.7-bookworm
+    # The image is published for amd64 only; this lets it run (emulated) on Apple Silicon too.
+    platform: linux/amd64
+    # KAMAILIO_DEFINES comes from the .env file (written by switch_mode.py).
+    entrypoint: ["sh", "-c", "exec kamailio -DD -E -m 64 -M 8 -f /etc/kamailio/kamailio.cfg $$KAMAILIO_DEFINES"]
+    environment:
+      KAMAILIO_DEFINES: ${KAMAILIO_DEFINES:-}
+    volumes:
+      - ./docker/kamailio.cfg:/etc/kamailio/kamailio.cfg:ro
+    ports:
+      - "5060:5060/udp"
+    networks:
+      sipnet:
+        ipv4_address: 172.28.0.10
+
+  bob:
+    # The phone that answers calls, so INVITE -> ACK -> BYE goes through
+    # Kamailio exactly as a real call would. bob is not the target.
+    image: python:3.12.7-slim
+    working_dir: /app
+    command: ["python", "-u", "bob_uas.py"]
+    environment:
+      SF_TARGET_HOST: 172.28.0.10
+      SF_LOCAL_HOST: 172.28.0.20
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - ./bob_uas.py:/app/bob_uas.py:ro
+      - ./sip_messages.py:/app/sip_messages.py:ro
+    depends_on:
+      - kamailio
+    networks:
+      sipnet:
+        ipv4_address: 172.28.0.20
+
+networks:
+  sipnet:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
